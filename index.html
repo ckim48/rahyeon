@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>FitStride</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+<style>
+.molecule-canvas {
+  width: 100%;
+  height: 500px;
+  background: transparent !important;
+  position: relative;
+
+  /* Align vertically with hero text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: -300px; /* Pull up the whole canvas container */
+  overflow: visible; /* No clipping */
+}
+
+@media (max-width: 991.98px) {
+  .molecule-canvas {
+    height: 320px;
+    margin-top: -20px; /* Slightly less negative margin for mobile */
+  }
+}
+
+#moleculeCanvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">FitStride</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section id="hero" class="hero section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="hero-content">
+              <h1 class="hero-title">Run, Explore, and Learn Chemistry</h1>
+              <p class="hero-description">
+                FitStride 2.0 transforms your run into an exciting AR adventure. 
+                Collect virtual atoms along real-world routes, combine them to form molecules, 
+                and track your fitness progress — making exercise both fun and educational.
+              </p>
+              <div class="hero-actions">
+                <a href="#about" class="btn-primary">Discover the App</a>
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn-secondary glightbox">
+                  <i class="bi bi-play-circle"></i>
+                  <span>Watch Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Right: 3D Molecule -->
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div id="moleculeCanvas" class="molecule-canvas"></div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- ===== About Section (Two Alternating Rows) ===== -->
+<section id="about" class="section py-5 py-lg-6 about-alt">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Row 1: About the Project (Text | Image) -->
+<!-- Row 1: About the Project (Text | Image) -->
+<div class="row align-items-center gy-4 mb-5">
+  <div class="col-lg-6" data-aos="fade-right" data-aos-delay="150">
+    <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2 mb-3">About the Project</span>
+    <h2 class="mb-3">FitStride 2.0 — AR Running Meets Chemistry</h2>
+    <p class="lead">
+      FitStride 2.0 enhances a traditional running app by integrating metaverse and AR technology,
+      turning exercise into a dynamic educational experience.
+    </p>
+    <p>
+      As users run along real-world routes, they collect AR-rendered atoms at GPS-based checkpoints.
+      Over multiple runs, these atoms can be combined to form molecules, helping students learn molecular
+      structures in a fun and interactive way while staying active.
+    </p>
+  </div>
+
+  <!-- Phone stack (replace the old <img> block) -->
+  <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="250">
+    <div class="phone-stack">
+      <!-- Left phone -->
+      <div class="phone phone-left">
+        <div class="phone-bezel">
+          <img src="assets/img/app/atomix1.png" alt="FitStride route planning screen" class="phone-screen">
+          <div class="notch"></div>
+        </div>
+      </div>
+      <!-- Center phone -->
+      <div class="phone phone-center">
+        <div class="phone-bezel">
+          <img src="assets/img/app/atomix6.png" alt="FitStride AR collection screen" class="phone-screen">
+          <div class="notch"></div>
+        </div>
+      </div>
+      <!-- Right phone -->
+      <div class="phone phone-right">
+        <div class="phone-bezel">
+          <img src="assets/img/app/atomix10.png" alt="FitStride stats & analytics screen" class="phone-screen">
+          <div class="notch"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Row 2: Why We Made This (Image | Text) -->
+    <div class="row align-items-center gy-4 flex-lg-row-reverse  row-spacing">
+      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
+        <img src="assets/img/about/about2.jpg" class="img-fluid rounded-4 shadow-sm d-block mx-auto" alt="Why FitStride was created" style="width: 85%;">
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="250">
+        <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis px-3 py-2 mb-3">Why We Made This Project</span>
+        <h3 class="mb-3">Our Purpose</h3>
+        <p>
+          Many students struggle to stay motivated in both fitness and academics. 
+          FitStride 2.0 bridges these worlds by combining exercise with hands-on learning. 
+        </p>
+        <p>
+          By encouraging physical activity through running challenges and 
+          reinforcing chemistry knowledge with interactive AR molecules, 
+          our goal is to promote health, engagement, and education in a single, 
+          gamified experience.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="how-it-works" class="section py-5 py-lg-6 light-background">
+<section id="how-it-works" class="section py-5 py-lg-6 light-background">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Section Title -->
+    <div class="text-center mb-5">
+      <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis px-3 py-2">How It Works</span>
+      <h2 class="mt-3">Using FitStride in 4 Easy Steps</h2>
+      <p class="text-muted">Follow these steps to make your run fun and educational.</p>
+    </div>
+
+    <div class="timeline-modern">
+
+      <!-- Step 1 -->
+      <div class="timeline-row">
+        <div class="timeline-text" data-aos="fade-right">
+          <div class="step-kicker">
+            <span class="step-dot">1</span>
+            <span class="step-label">Sign Up & Set Goals</span>
+          </div>
+          <h4>Create your profile, set weekly goals</h4>
+          <p>Set your distance and target pace. FitStride builds a plan tailored to you.</p>
+          <ul class="mini-points">
+            <li>Quick onboarding</li>
+            <li>Auto goal suggestions</li>
+            <li>Adjust anytime</li>
+          </ul>
+        </div>
+        <div class="timeline-image" data-aos="fade-left">
+          <div class="timeline-device">
+            <div class="timeline-device-notch"></div>
+            <div class="timeline-device-screen">
+              <img src="assets/img/app/atomix1.png" alt="Sign Up and Goals">
+            </div>
+            <div class="timeline-device-buttons"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="timeline-row flex-lg-row-reverse">
+        <div class="timeline-text" data-aos="fade-left">
+          <div class="step-kicker">
+            <span class="step-dot">2</span>
+            <span class="step-label">Choose Your Route</span>
+          </div>
+          <h4>Pick routes by distance, difficulty, and safety</h4>
+          <p>Browse curated paths with live data to match your fitness level and mood.</p>
+          <ul class="mini-points">
+            <li>Interactive map previews</li>
+            <li>Safety ratings</li>
+            <li>Terrain tags</li>
+          </ul>
+        </div>
+        <div class="timeline-image" data-aos="fade-right">
+          <div class="timeline-device">
+            <div class="timeline-device-notch"></div>
+            <div class="timeline-device-screen">
+              <img src="assets/img/app/atomix2.png" alt="Choose Route">
+            </div>
+            <div class="timeline-device-buttons"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-row">
+        <div class="timeline-text" data-aos="fade-right">
+          <div class="step-kicker">
+            <span class="step-dot">3</span>
+            <span class="step-label">Collect Atoms with AR</span>
+          </div>
+          <h4>Run, scan, and collect interactive atoms</h4>
+          <p>GPS checkpoints trigger AR interactions. Capture atoms as you move along the route.</p>
+          <ul class="mini-points">
+            <li>Low-distraction AR interface</li>
+            <li>Haptic cues for alerts</li>
+            <li>Offline progress saving</li>
+          </ul>
+        </div>
+        <div class="timeline-image" data-aos="fade-left">
+          <div class="timeline-device">
+            <div class="timeline-device-notch"></div>
+            <div class="timeline-device-screen">
+              <img src="assets/img/app/atomix9.png" alt="Collect Atoms">
+            </div>
+            <div class="timeline-device-buttons"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-row flex-lg-row-reverse">
+        <div class="timeline-text" data-aos="fade-left">
+          <div class="step-kicker">
+            <span class="step-dot">4</span>
+            <span class="step-label">Build Molecules & Track</span>
+          </div>
+          <h4>Fuse atoms into molecules and learn</h4>
+          <p>Combine collected atoms to form molecules, unlock fun chemistry facts, and track your weekly progress.</p>
+          <ul class="mini-points">
+            <li>Achievement badges</li>
+            <li>Molecule library</li>
+            <li>Analytics dashboard</li>
+          </ul>
+        </div>
+        <div class="timeline-image" data-aos="fade-right">
+          <div class="timeline-device">
+            <div class="timeline-device-notch"></div>
+            <div class="timeline-device-screen">
+              <img src="assets/img/app/atomix10.png" alt="Build Molecules">
+            </div>
+            <div class="timeline-device-buttons"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline-modern -->
+
+  </div>
+</section>
+
+
+
+<!-- Stats + Maps Section -->
+<section id="stats" class="stats section" style="background-color:white;">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-4 g-lg-5 align-items-start">
+      
+      <!-- LEFT: Stats -->
+      <div class="col-lg-5" data-aos="fade-right" data-aos-delay="150">
+        <div class="mb-3 text-center text-lg-start">
+          <h3 class="main-headline mb-2">Run. Collect. Learn.</h3>
+          <p class="main-description mb-3">Track progress across routes and molecules collected during each run.</p>
+          <div class="achievement-badge">
+            <div class="achievement-content">
+              <div class="achievement-icon"><i class="bi bi-hexagon-fill"></i></div>
+              <div class="achievement-details">
+                <div class="achievement-title">Live Chemistry Hunt</div>
+                <div class="achievement-subtitle">Real routes • Real molecules</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two-up compact cards -->
+        <div class="row g-3">
+          <!-- Molecules -->
+          <div class="col-12 col-sm-6">
+            <div class="stat-item stat-compact featured">
+              <div class="stat-icon"><i class="bi bi-hexagon"></i></div>
+              <div class="stat-number">
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1243" data-purecounter-duration="1.8"></span>
+              </div>
+              <div class="stat-label">Molecules</div>
+            </div>
+          </div>
+          <!-- Routes -->
+          <div class="col-12 col-sm-6">
+            <div class="stat-item stat-compact">
+              <div class="stat-icon"><i class="bi bi-signpost-2-fill"></i></div>
+              <div class="stat-number">
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1.2"></span>
+              </div>
+              <div class="stat-label">Routes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini Legend -->
+        <div class="legend card border-0 shadow-sm mt-3">
+          <div class="card-body p-3 py-2">
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <span class="legend-dot legend-easy"></span><small>Easy pace</small>
+              <span class="legend-dot legend-mixed"></span><small>Mixed terrain</small>
+              <span class="legend-dot legend-advanced"></span><small>Advanced checkpoints</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /LEFT -->
+
+      <!-- RIGHT: Maps with Tabs -->
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+        <div class="route-panel card border-0 shadow-sm">
+          <div class="card-body p-3 p-lg-4">
+            <!-- Tabs -->
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+              <ul class="nav nav-tabs route-tabs" id="routeTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="route-a-tab" data-bs-toggle="tab" data-bs-target="#route-a" type="button" role="tab" aria-controls="route-a" aria-selected="true">
+                    <i class="bi bi-geo-alt-fill me-1"></i>Route A
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="route-b-tab" data-bs-toggle="tab" data-bs-target="#route-b" type="button" role="tab" aria-controls="route-b" aria-selected="false">
+                    <i class="bi bi-geo-alt-fill me-1"></i>Route B
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="route-c-tab" data-bs-toggle="tab" data-bs-target="#route-c" type="button" role="tab" aria-controls="route-c" aria-selected="false">
+                    <i class="bi bi-geo-alt-fill me-1"></i>Route C
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tab Panes -->
+            <div class="tab-content route-tabs-content" id="routeTabsContent">
+              <div class="tab-pane fade show active" id="route-a" role="tabpanel" aria-labelledby="route-a-tab" tabindex="0">
+                <p class="route-note">Scenic starter loop with steady pacing.</p>
+                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
+                  <iframe src="https://www.google.com/maps/d/embed?mid=1wVXxpo0hf5KWd37Tkc-4QJDmZsH9J0E&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route A map"></iframe>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="route-b" role="tabpanel" aria-labelledby="route-b-tab" tabindex="0">
+                <p class="route-note">Mixed terrain with more molecule hotspots.</p>
+                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
+                  <iframe src="https://www.google.com/maps/d/embed?mid=12Z2R8IPw8saiB5aRdY7oJWx_77WZJh8&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route B map"></iframe>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="route-c" role="tabpanel" aria-labelledby="route-c-tab" tabindex="0">
+                <p class="route-note">Longest path with advanced checkpoints.</p>
+                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
+                  <iframe src="https://www.google.com/maps/d/embed?mid=1mE4Bex3EWP3QTDHXJ3ZmiFhLV9w1tfE&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route C map"></iframe>
+                </div>
+              </div>
+            </div><!-- /tab-content -->
+          </div>
+        </div>
+      </div>
+      <!-- /RIGHT -->
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+</section>
+
+
+
+
+
+<section id="contact" class="contact section light-background">
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">Contact</span>
+    <h2>Contact</h2>
+    <p>Have a question or idea? Send us a message.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-5">
+      <div class="col-lg-12">
+        <div class="contact-form card d-block mx-auto" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-body p-4 p-lg-5">
+
+            <!-- Alerts -->
+            <div id="contactSuccess" class="alert alert-success d-none" role="alert">
+              Your message has been sent. Thank you!
+            </div>
+            <div id="contactError" class="alert alert-danger d-none" role="alert">
+              Sorry—something went wrong. Please try again.
+            </div>
+
+            <!-- Form -->
+            <form id="contactForm" novalidate>
+              <div class="row gy-4">
+                <div class="col-12">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input id="name" type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input id="email" type="email" name="email" class="form-control" placeholder="you@example.com" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input id="subject" type="text" name="subject" class="form-control" placeholder="Subject">
+                </div>
+
+                <div class="col-12">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" name="message" class="form-control" rows="6" placeholder="Write your message..." required></textarea>
+                  <div class="invalid-feedback">Please enter a message.</div>
+                </div>
+
+                <div class="col-12">
+                  <button id="submitButton" type="submit" class="btn btn-submit w-100 d-inline-flex align-items-center justify-content-center">
+                    <span id="spinner" class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+                    <span id="submitText">Send Message</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional: Success Modal (Bootstrap 5) -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Message Sent</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Thanks for reaching out. We’ll get back to you soon.
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative dark-background">
+
+    <div class="container copyright text-center ">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">FitStride</strong> <span>All Rights Reserved</span></p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+
+<script>
+(function () {
+  const el = document.getElementById('moleculeCanvas');
+  if (!el || !window.THREE) return;
+
+  // Scene / Camera / Renderer
+  const scene = new THREE.Scene();
+  scene.background = null;
+
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
+  camera.position.set(0, 0.8, 6);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(el.clientWidth, el.clientHeight, false);
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMappingExposure = 1.3;
+  el.appendChild(renderer.domElement);
+
+  // Lights
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x888888, 1.0);
+  const key  = new THREE.DirectionalLight(0xffffff, 1.2); key.position.set(4,5,6);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.8); fill.position.set(-4,3,-2);
+  scene.add(hemi, key, fill);
+
+  // Materials / sizes
+  const COLORS = { C: 0x000000, O: 0xff0000, H: 0xffffff };
+  const RAD    = { C: 0.30, O: 0.28, H: 0.20 };
+  const bondR  = 0.07;
+
+  const atomMat = (c) => new THREE.MeshStandardMaterial({ color:c, metalness:0.2, roughness:0.35 });
+  const bondMat = new THREE.MeshStandardMaterial({ color:0xcccccc, metalness:0.3, roughness:0.4 });
+
+  // Root group
+  const group = new THREE.Group();
+  group.rotation.set(0.55, 8.40, 0);   // nice “looking up” tilt
+  group.position.set(0.35, 0.45, 0);    // nudged right/up to line up with hero text
+  scene.add(group);
+
+  // Helpers
+  function addSphere(p, r, mat){ const m = new THREE.Mesh(new THREE.SphereGeometry(r, 42, 42), mat); m.position.copy(p); group.add(m); return m; }
+  function addAtom(type, p){ return addSphere(p, RAD[type], atomMat(COLORS[type])); }
+  function addBond(a, b, r=bondR){
+    const dir = new THREE.Vector3().subVectors(b, a), len = dir.length();
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 32), bondMat);
+    const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(0.5);
+    m.position.copy(mid);
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.clone().normalize());
+    group.add(m);
+  }
+
+  // === α-D-glucopyranose (simplified) ===
+  const R = 1.22;
+  const ang = [0,60,120,180,240,300].map(d=>d*Math.PI/180);
+  const y   = [ 0.30,-0.30, 0.30,-0.30, 0.30,-0.30 ];
+  const ring = ang.map((t,i)=>new THREE.Vector3(Math.cos(t)*R, y[i], Math.sin(t)*R));
+  const [O5,C1,C2,C3,C4,C5] = ring.map(v=>v.clone());
+
+  const center = ring.reduce((a,v)=>a.add(v.clone()), new THREE.Vector3()).multiplyScalar(1/ring.length);
+  const C6 = C5.clone().add(C5.clone().sub(center).normalize().multiplyScalar(1.0)).add(new THREE.Vector3(0,0.3,0));
+
+  addAtom('O',O5); addAtom('C',C1); addAtom('C',C2); addAtom('C',C3); addAtom('C',C4); addAtom('C',C5); addAtom('C',C6);
+  const seq = [O5,C1,C2,C3,C4,C5,O5]; for (let i=0;i<seq.length-1;i++) addBond(seq[i], seq[i+1]);
+
+  function addHydroxyl(base, dir, tiltY=0){
+    const d = dir.clone().normalize();
+    const Opos = base.clone().add(d.multiplyScalar(0.65)).add(new THREE.Vector3(0,tiltY,0));
+    const Hpos = Opos.clone().add(d.clone().multiplyScalar(0.38)).add(new THREE.Vector3(0,tiltY*0.2,0));
+    addAtom('O',Opos); addAtom('H',Hpos); addBond(base,Opos); addBond(Opos,Hpos,0.045);
+  }
+  const outward = p => p.clone().sub(center).normalize();
+  addHydroxyl(C1, new THREE.Vector3(0,-1,0), -0.05);
+  addHydroxyl(C2, outward(C2), 0.02);
+  addHydroxyl(C3, outward(C3), 0.01);
+  addHydroxyl(C4, outward(C4), -0.02);
+
+  const C6d = C5.clone().sub(center).add(new THREE.Vector3(0,0.15,0)).normalize();
+  const O6  = C6.clone().add(C6d.clone().multiplyScalar(0.60));
+  const H6O = O6.clone().add(C6d.clone().multiplyScalar(0.40));
+  addAtom('O',O6); addAtom('H',H6O); addBond(C6,O6); addBond(O6,H6O,0.045);
+  const H6   = C6.clone().add(C6d.clone().multiplyScalar(-0.45));
+  addAtom('H',H6); addBond(C6,H6,0.045);
+
+// Rotation-proof fit: keeps the whole molecule in view at any angle
+const SIZE_MULTIPLIER = 1.65; // 1.0 = exact fit; >1 zooms in safely
+
+function fitCameraToGroup(padding = 1.08) {
+  // Compute a rotation-invariant radius
+  const box = new THREE.Box3().setFromObject(group);
+  const sphere = box.getBoundingSphere(new THREE.Sphere());
+  const R = sphere.radius * padding;
+
+  // Vertical & horizontal FOV constraints
+  const fovY = THREE.MathUtils.degToRad(camera.fov);
+  const fovX = 2 * Math.atan(Math.tan(fovY / 2) * camera.aspect);
+
+  const distY = R / Math.tan(fovY / 2);
+  const distX = R / Math.tan(fovX / 2);
+  let distance = Math.max(distX, distY);
+
+  // Zoom in but keep guaranteed margin (no clipping at edges)
+  distance = distance / SIZE_MULTIPLIER;
+
+  // Position camera and planes
+  const c = sphere.center;
+  camera.position.set(c.x, c.y + 0.8, c.z + distance);
+  camera.near = Math.max(0.01, distance / 200);
+  camera.far  = distance * 200;
+  camera.updateProjectionMatrix();
+
+  camera.lookAt(c.x + group.position.x, c.y + group.position.y, c.z + group.position.z);
+}
+
+
+// call it after building the molecule and inside resize()
+fitCameraToGroup();
+function resize(){
+  const w = el.clientWidth || 600, h = el.clientHeight || 400;
+  camera.aspect = w / h; camera.updateProjectionMatrix();
+  renderer.setSize(w, h, false);
+  fitCameraToGroup(); // keeps size & padding on resize
+}
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Drag + idle spin
+  let down=false,lx=0,ly=0,vx=0,vy=0;
+  const damp=0.92, sp=0.005, tilt=Math.PI/6;
+  const pt = e => e.touches ? {x:e.touches[0].clientX, y:e.touches[0].clientY} : {x:e.clientX, y:e.clientY};
+  el.addEventListener('mousedown', e=>{down=true; const p=pt(e); lx=p.x; ly=p.y;});
+  window.addEventListener('mousemove', e=>{
+    if(!down) return;
+    const p=pt(e); const dx=p.x-lx, dy=p.y-ly; lx=p.x; ly=p.y;
+    group.rotation.y += dx*sp;
+    group.rotation.x = Math.max(-tilt, Math.min(tilt, group.rotation.x + dy*sp));
+    vy = dx*sp; vx = dy*sp;
+  });
+  window.addEventListener('mouseup', ()=>down=false);
+  el.addEventListener('touchstart', e=>{down=true; const p=pt(e); lx=p.x; ly=p.y;}, {passive:true});
+  el.addEventListener('touchmove', e=>{
+    if(!down) return;
+    const p=pt(e); const dx=p.x-lx, dy=p.y-ly; lx=p.x; ly=p.y;
+    group.rotation.y += dx*sp;
+    group.rotation.x = Math.max(-tilt, Math.min(tilt, group.rotation.x + dy*sp));
+    vy = dx*sp; vx = dy*sp;
+  }, {passive:true});
+  el.addEventListener('touchend', ()=>down=false);
+
+  renderer.setAnimationLoop(()=>{
+    if(!down){
+      group.rotation.y += 0.0015;
+      group.rotation.y += vy; group.rotation.x += vx;
+      group.rotation.x = Math.max(-tilt, Math.min(tilt, group.rotation.x));
+      vx*=damp; vy*=damp;
+    }
+    renderer.render(scene, camera);
+  });
+})();
+</script>
+<script>
+  emailjs.init("27QgP0uQsaxgso0ls"); // Your public key
+
+  const form = document.getElementById("contactForm");
+  const btn = document.getElementById("submitButton");
+  const spinner = document.getElementById("spinner");
+  const submitText = document.getElementById("submitText");
+  const successBox = document.getElementById("contactSuccess");
+  const errorBox = document.getElementById("contactError");
+
+  // Small helper: toggle d-none consistently
+  function show(el, yes){ el.classList.toggle("d-none", !yes); }
+
+  function setLoading(isLoading){
+    btn.disabled = isLoading;
+    show(spinner, isLoading);
+    submitText.textContent = isLoading ? "Sending..." : "Send Message";
+    Array.from(form.elements).forEach(el => { el.disabled = isLoading; });
+    show(successBox, false);
+    show(errorBox, false);
+  }
+
+  function showSuccessModal(){
+    if (window.bootstrap && document.getElementById("contactModal")) {
+      const modal = new bootstrap.Modal(document.getElementById("contactModal"));
+      modal.show();
+    }
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!form.checkValidity()) { form.classList.add("was-validated"); return; }
+
+    setLoading(true);
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    emailjs.send("service_rglla1a","template_19ra51l",{
+      from_name: name,
+      subject: subject || "(No subject)",
+      user_email: email,
+      message: message,
+      to_email: "brailleplay87@gmail.com"
+    }).then(() => {
+      setLoading(false);
+      form.reset();
+      form.classList.remove("was-validated");
+      show(successBox, true);
+      showSuccessModal();
+    }).catch((error) => {
+      console.error(error);
+      setLoading(false);
+      show(errorBox, true);
+    });
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
