@@ -27,33 +27,48 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 <style>
-.molecule-canvas {
-  width: 100%;
-  height: 500px;
-  background: transparent !important;
-  position: relative;
-
-  /* Align vertically with hero text */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-top: -300px; /* Pull up the whole canvas container */
-  overflow: visible; /* No clipping */
+/* ===== Hero overflow fixes ===== */
+.section#hero,
+.hero,
+.hero .container,
+.hero .row,
+.hero .col-lg-6 {
+  overflow: visible !important;
 }
 
-@media (max-width: 991.98px) {
-  .molecule-canvas {
-    height: 320px;
-    margin-top: -20px; /* Slightly less negative margin for mobile */
+/* ===== Molecule canvas container ===== */
+.molecule-canvas{
+  width: 100%;
+  aspect-ratio: 16 / 12;   /* adjust if you want it taller/shorter */
+  max-height: 560px;       /* optional cap for desktops */
+  background: transparent !important;
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+           margin-top: -160px;  /* no negative margin needed */
+  z-index: 2;              /* sit above any decorative shapes */
+}
+
+/* Smaller screens: give it a bit more height */
+@media (max-width: 991.98px){
+  .molecule-canvas{
+    aspect-ratio: 16 / 14;
+    max-height: 420px;
+    margin-top: 0px;
   }
 }
 
-#moleculeCanvas canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
+/* The real WebGL canvas should always fill its box */
+#moleculeCanvas canvas{
+  display:block;
+  width:100%;
+  height:100%;
+  margin-top: 0px;
 }
+
+/* If your template sets .section { overflow:hidden; } this overrides just the hero */
+.section#hero { overflow: visible !important; }
 
 </style>
 
@@ -547,43 +562,48 @@
   const el = document.getElementById('moleculeCanvas');
   if (!el || !window.THREE) return;
 
-  // Scene / Camera / Renderer
+  // --- Scene / Camera / Renderer ---
   const scene = new THREE.Scene();
   scene.background = null;
 
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 2000);
   camera.position.set(0, 0.8, 6);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(el.clientWidth, el.clientHeight, false);
-  renderer.setClearColor(0x000000, 0);
+  renderer.setClearColor(0x000000, 0); // transparent
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMappingExposure = 1.3;
   el.appendChild(renderer.domElement);
 
-  // Lights
+  // --- Lights ---
   const hemi = new THREE.HemisphereLight(0xffffff, 0x888888, 1.0);
   const key  = new THREE.DirectionalLight(0xffffff, 1.2); key.position.set(4,5,6);
   const fill = new THREE.DirectionalLight(0xffffff, 0.8); fill.position.set(-4,3,-2);
   scene.add(hemi, key, fill);
 
-  // Materials / sizes
+  // --- Materials / sizes ---
   const COLORS = { C: 0x000000, O: 0xff0000, H: 0xffffff };
   const RAD    = { C: 0.30, O: 0.28, H: 0.20 };
   const bondR  = 0.07;
 
-  const atomMat = (c) => new THREE.MeshStandardMaterial({ color:c, metalness:0.2, roughness:0.35 });
+  const atomMat = c => new THREE.MeshStandardMaterial({ color:c, metalness:0.2, roughness:0.35 });
   const bondMat = new THREE.MeshStandardMaterial({ color:0xcccccc, metalness:0.3, roughness:0.4 });
 
-  // Root group
+  // --- Root group ---
   const group = new THREE.Group();
-  group.rotation.set(0.55, 8.40, 0);   // nice “looking up” tilt
-  group.position.set(0.35, 0.45, 0);    // nudged right/up to line up with hero text
+  group.rotation.set(1.55, 17.40, 0);  // pleasant tilt
+  group.position.set(0.35, 0.45, 0);  // slight nudge
   scene.add(group);
 
-  // Helpers
-  function addSphere(p, r, mat){ const m = new THREE.Mesh(new THREE.SphereGeometry(r, 42, 42), mat); m.position.copy(p); group.add(m); return m; }
+  // --- Helpers ---
+  function addSphere(p, r, mat){
+    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 42, 42), mat);
+    m.position.copy(p);
+    group.add(m);
+    return m;
+  }
   function addAtom(type, p){ return addSphere(p, RAD[type], atomMat(COLORS[type])); }
   function addBond(a, b, r=bondR){
     const dir = new THREE.Vector3().subVectors(b, a), len = dir.length();
@@ -594,7 +614,7 @@
     group.add(m);
   }
 
-  // === α-D-glucopyranose (simplified) ===
+  // --- α-D-glucopyranose (simplified ring + hydroxyls) ---
   const R = 1.22;
   const ang = [0,60,120,180,240,300].map(d=>d*Math.PI/180);
   const y   = [ 0.30,-0.30, 0.30,-0.30, 0.30,-0.30 ];
@@ -626,53 +646,46 @@
   const H6   = C6.clone().add(C6d.clone().multiplyScalar(-0.45));
   addAtom('H',H6); addBond(C6,H6,0.045);
 
-// Rotation-proof fit: keeps the whole molecule in view at any angle
-const SIZE_MULTIPLIER = 1.65; // 1.0 = exact fit; >1 zooms in safely
+  // --- Fit camera to group (rotation-proof) ---
+  const SIZE_MULTIPLIER = 1.65; // 1.0 exact fit; >1 zooms in safely
+  function fitCameraToGroup(padding = 1.08) {
+    const box = new THREE.Box3().setFromObject(group);
+    const sphere = box.getBoundingSphere(new THREE.Sphere());
+    const R = sphere.radius * padding;
 
-function fitCameraToGroup(padding = 1.08) {
-  // Compute a rotation-invariant radius
-  const box = new THREE.Box3().setFromObject(group);
-  const sphere = box.getBoundingSphere(new THREE.Sphere());
-  const R = sphere.radius * padding;
+    const fovY = THREE.MathUtils.degToRad(camera.fov);
+    const fovX = 2 * Math.atan(Math.tan(fovY / 2) * camera.aspect);
+    const distY = R / Math.tan(fovY / 2);
+    const distX = R / Math.tan(fovX / 2);
+    let distance = Math.max(distX, distY) / SIZE_MULTIPLIER;
 
-  // Vertical & horizontal FOV constraints
-  const fovY = THREE.MathUtils.degToRad(camera.fov);
-  const fovX = 2 * Math.atan(Math.tan(fovY / 2) * camera.aspect);
+    const c = sphere.center;
+    camera.position.set(c.x, c.y + 0.8, c.z + distance);
+    camera.near = Math.max(0.01, distance / 200);
+    camera.far  = distance * 200;
+    camera.updateProjectionMatrix();
+    camera.lookAt(c.x + group.position.x, c.y + group.position.y, c.z + group.position.z);
+  }
 
-  const distY = R / Math.tan(fovY / 2);
-  const distX = R / Math.tan(fovX / 2);
-  let distance = Math.max(distX, distY);
+  // --- Resize handling with ResizeObserver ---
+  function resizeToEl(){
+    const w = Math.max(1, el.clientWidth);
+    const h = Math.max(1, el.clientHeight);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h, false);
+    fitCameraToGroup();
+  }
+  resizeToEl();
+  const ro = new ResizeObserver(resizeToEl);
+  ro.observe(el);
+  window.addEventListener('orientationchange', resizeToEl);
 
-  // Zoom in but keep guaranteed margin (no clipping at edges)
-  distance = distance / SIZE_MULTIPLIER;
-
-  // Position camera and planes
-  const c = sphere.center;
-  camera.position.set(c.x, c.y + 0.8, c.z + distance);
-  camera.near = Math.max(0.01, distance / 200);
-  camera.far  = distance * 200;
-  camera.updateProjectionMatrix();
-
-  camera.lookAt(c.x + group.position.x, c.y + group.position.y, c.z + group.position.z);
-}
-
-
-// call it after building the molecule and inside resize()
-fitCameraToGroup();
-function resize(){
-  const w = el.clientWidth || 600, h = el.clientHeight || 400;
-  camera.aspect = w / h; camera.updateProjectionMatrix();
-  renderer.setSize(w, h, false);
-  fitCameraToGroup(); // keeps size & padding on resize
-}
-
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Drag + idle spin
+  // --- Drag + idle spin ---
   let down=false,lx=0,ly=0,vx=0,vy=0;
   const damp=0.92, sp=0.005, tilt=Math.PI/6;
   const pt = e => e.touches ? {x:e.touches[0].clientX, y:e.touches[0].clientY} : {x:e.clientX, y:e.clientY};
+
   el.addEventListener('mousedown', e=>{down=true; const p=pt(e); lx=p.x; ly=p.y;});
   window.addEventListener('mousemove', e=>{
     if(!down) return;
@@ -682,6 +695,7 @@ function resize(){
     vy = dx*sp; vx = dy*sp;
   });
   window.addEventListener('mouseup', ()=>down=false);
+
   el.addEventListener('touchstart', e=>{down=true; const p=pt(e); lx=p.x; ly=p.y;}, {passive:true});
   el.addEventListener('touchmove', e=>{
     if(!down) return;
@@ -692,6 +706,7 @@ function resize(){
   }, {passive:true});
   el.addEventListener('touchend', ()=>down=false);
 
+  // --- Animate ---
   renderer.setAnimationLoop(()=>{
     if(!down){
       group.rotation.y += 0.0015;
@@ -703,66 +718,6 @@ function resize(){
   });
 })();
 </script>
-<script>
-  emailjs.init("27QgP0uQsaxgso0ls"); // Your public key
-
-  const form = document.getElementById("contactForm");
-  const btn = document.getElementById("submitButton");
-  const spinner = document.getElementById("spinner");
-  const submitText = document.getElementById("submitText");
-  const successBox = document.getElementById("contactSuccess");
-  const errorBox = document.getElementById("contactError");
-
-  // Small helper: toggle d-none consistently
-  function show(el, yes){ el.classList.toggle("d-none", !yes); }
-
-  function setLoading(isLoading){
-    btn.disabled = isLoading;
-    show(spinner, isLoading);
-    submitText.textContent = isLoading ? "Sending..." : "Send Message";
-    Array.from(form.elements).forEach(el => { el.disabled = isLoading; });
-    show(successBox, false);
-    show(errorBox, false);
-  }
-
-  function showSuccessModal(){
-    if (window.bootstrap && document.getElementById("contactModal")) {
-      const modal = new bootstrap.Modal(document.getElementById("contactModal"));
-      modal.show();
-    }
-  }
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    if (!form.checkValidity()) { form.classList.add("was-validated"); return; }
-
-    setLoading(true);
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    emailjs.send("service_rglla1a","template_19ra51l",{
-      from_name: name,
-      subject: subject || "(No subject)",
-      user_email: email,
-      message: message,
-      to_email: "brailleplay87@gmail.com"
-    }).then(() => {
-      setLoading(false);
-      form.reset();
-      form.classList.remove("was-validated");
-      show(successBox, true);
-      showSuccessModal();
-    }).catch((error) => {
-      console.error(error);
-      setLoading(false);
-      show(errorBox, true);
-    });
-  });
-</script>
-
 
 
 
