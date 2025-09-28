@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>FitStride — Map & Info</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Ubuntu:wght@400;700&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <style>
+    /* Page hero */
+    header{
+      z-index: 999999;
+    }
+    .page-hero { padding: 120px 0 24px; background: var(--surface-color); }
+    .page-hero h1 { margin: 0; font-weight: 800; }
+    .page-hero p { color: color-mix(in srgb, var(--default-color), transparent 25%); }
+
+    /* Layout for map + stats */
+    .map-and-stats .sticky-lg-top { top: 90px; }
+
+    /* Map box */
+    .map-card { background: var(--surface-color); border-radius: 16px; overflow: hidden; box-shadow: 0 14px 28px rgba(0,0,0,.08); }
+
+    /* Compact map ratio */
+    .map-ratio-compact { width: 100%; aspect-ratio: 4/3; background: #f3f5f6; position: relative; }
+    .map-ratio-compact iframe { width: 100%; height: 100%; border: 0; opacity: 1; transition: opacity .25s ease; }
+    .map-ratio-compact.loading iframe { opacity: 0; }
+    /* tiny loader */
+    .map-loader {
+      position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none;
+      opacity: 0; transition: opacity .2s ease;
+    }
+    .map-ratio-compact.loading .map-loader { opacity: 1; }
+    .map-spinner { width: 32px; height: 32px; border-radius: 50%; border: 3px solid #ddd; border-top-color: var(--accent-color); animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Toolbar above map */
+    .map-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+
+    /* Stats grid */
+    .stats-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .stat-card {
+      grid-column: span 6; background: var(--surface-color); border-radius: 14px; padding: 1rem 1.1rem;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-color), transparent 92%); text-align: center;
+    }
+    .stat-card .label { font-size: .8rem; font-weight: 600; color: color-mix(in srgb, var(--default-color), transparent 40%); text-transform: uppercase; margin-bottom: .3rem; }
+    .stat-card .value { font-family: var(--heading-font); font-size: 1.8rem; font-weight: 800; color: var(--heading-color); }
+    .stat-card .delta { font-size: .85rem; margin-top: .2rem; color: #16a34a; }
+
+    /* Charts */
+    .chart-card {
+      grid-column: span 12; background: var(--surface-color); border-radius: 14px; padding: 1rem 1.1rem 1.4rem;
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-color), transparent 92%);
+    }
+    .chart-title { font-weight: 700; margin-bottom: .4rem; }
+    .mini-legend { font-size: .85rem; color: color-mix(in srgb, var(--default-color), transparent 35%); margin-bottom: .6rem; }
+
+    @media (max-width: 991.98px) { .stat-card { grid-column: span 12; } }
+  </style>
+</head>
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo2.png" alt="">
+        <h1 class="sitename">FitStride</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+
+    </div>
+  </header>
+
+
+  <main class="main">
+
+    <!-- Page Hero -->
+    <section class="page-hero section">
+      <div class="container" data-aos="fade-up" data-aos-delay="80">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <div>
+            <h1>App Routes & Progress Overview</h1>
+            <p>Explore app routes, molecule hotspots, and collective progress stats.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map + Stats Layout -->
+    <section class="map-and-stats section" style="padding-top:10px !important">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 align-items-start">
+
+          <!-- LEFT: Map -->
+          <div class="col-lg-7">
+            <div class="map-card sticky-lg-top p-3" style="z-index: 1;">
+              <!-- Toolbar -->
+              <div class="map-toolbar">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-geo-alt-fill text-primary"></i>
+                  <strong>Select Route</strong>
+                </div>
+                <select id="routeSelect" class="form-select form-select-sm" style="min-width: 160px;">
+                  <option value="A" selected>Route A</option>
+                  <option value="B">Route B</option>
+                  <option value="C">Route C</option>
+                </select>
+              </div>
+              <!-- Map -->
+              <div id="mapBox" class="map-ratio-compact rounded">
+                <iframe id="routeMap"
+                        src="https://www.google.com/maps/d/embed?mid=1wVXxpo0hf5KWd37Tkc-4QJDmZsH9J0E&ehbc=2E312F"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        aria-label="Route Map"></iframe>
+                <div class="map-loader" aria-hidden="true">
+                  <div class="map-spinner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Stats and Charts -->
+          <div class="col-lg-5">
+            <!-- Stats -->
+            <div class="stats-grid mb-4">
+              <div class="stat-card">
+                <div class="label">Total Molecules Collected</div>
+                <div class="value">
+                  <span class="purecounter" data-purecounter-start="1180" data-purecounter-end="1243" data-purecounter-duration="1.6"></span>
+                </div>
+                <div class="delta"><i class="bi bi-arrow-up-right"></i> +5.3% this week</div>
+              </div>
+              <div class="stat-card">
+                <div class="label">Routes Available</div>
+                <div class="value">3</div>
+                <div class="delta" style="color:#3b82f6"><i class="bi bi-flag"></i> Updated recently</div>
+              </div>
+            </div>
+
+            <!-- Charts -->
+<!--             <div class="chart-card mb-4">
+              <div class="chart-title">Weekly Molecules Collected</div>
+              <div class="mini-legend">Past 6 weeks</div>
+              <canvas id="distanceChart" height="120"></canvas>
+            </div> -->
+
+            <div class="chart-card">
+              <div class="chart-title">Molecules Per Route</div>
+              <div class="mini-legend">Routes A, B, C</div>
+              <canvas id="moleculeChart" height="120"></canvas>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative dark-background">
+    <div class="container copyright text-center">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">FitStride</strong> <span>All Rights Reserved</span></p>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Init AOS + PureCounter
+    AOS.init({ once: true });
+    new PureCounter();
+
+    // ---- Route selector -> swap map ----
+    const ROUTE_MAPS = {
+      A: "https://www.google.com/maps/d/embed?mid=1wVXxpo0hf5KWd37Tkc-4QJDmZsH9J0E&ehbc=2E312F",
+      B: "https://www.google.com/maps/d/embed?mid=12Z2R8IPw8saiB5aRdY7oJWx_77WZJh8&ehbc=2E312F",
+      C: "https://www.google.com/maps/d/embed?mid=1mE4Bex3EWP3QTDHXJ3ZmiFhLV9w1tfE&ehbc=2E312F"
+    };
+
+    const selectEl = document.getElementById('routeSelect');
+    const mapBox   = document.getElementById('mapBox');
+    const iframe   = document.getElementById('routeMap');
+
+    // show loader while swapping src
+    function setMap(routeKey){
+      const url = ROUTE_MAPS[routeKey] || ROUTE_MAPS.A;
+      if (iframe.src === url) return;
+      mapBox.classList.add('loading');
+      iframe.addEventListener('load', () => mapBox.classList.remove('loading'), { once: true });
+      iframe.src = url;
+    }
+
+    selectEl.addEventListener('change', (e) => setMap(e.target.value));
+    // ensure initial state matches default
+    setMap(selectEl.value);
+
+    // ---- Charts ----
+    // const distCtx = document.getElementById('distanceChart');
+    const molCtx  = document.getElementById('moleculeChart');
+
+    // Weekly Molecules Chart (collective)
+    // new Chart(distCtx, {
+    //   type: 'line',
+    //   data: {
+    //     labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+    //     datasets: [{
+    //       label: 'Molecules',
+    //       data: [80, 120, 150, 200, 170, 220],
+    //       tension: 0.35,
+    //       fill: true,
+    //       backgroundColor: 'rgba(0,161,158,0.1)',
+    //       borderColor: '#00a19e',
+    //       pointBackgroundColor: '#00a19e'
+    //     }]
+    //   },
+    //   options: {
+    //     plugins: { legend: { display: false } },
+    //     scales: { x: { grid: { display: false } }, y: { beginAtZero: true } }
+    //   }
+    // });
+
+    // Molecules Per Route Chart (collective)
+    new Chart(molCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Route A', 'Route B', 'Route C'],
+        datasets: [{
+          label: 'Molecules',
+          data: [240, 310, 180],
+          backgroundColor: ['#00a19e', '#fca5a5', '#6366f1']
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+</body>
+</html>

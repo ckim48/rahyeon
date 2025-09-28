@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>FitStride</title>
+  <title>FitStride 2.0</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -81,7 +81,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <img src="assets/img/logo2.png" alt="">
         <h1 class="sitename">FitStride</h1>
       </a>
 
@@ -89,7 +89,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">Features</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -103,6 +103,12 @@
   <main class="main">
 
     <section id="hero" class="hero section">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="grid"></span>
+      </div>
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           
@@ -116,7 +122,7 @@
               </p>
               <div class="hero-actions">
                 <a href="#about" class="btn-primary">Discover the App</a>
-                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn-secondary glightbox">
+                <a href="assets/img/demo2.mp4" class="btn-secondary glightbox">
                   <i class="bi bi-play-circle"></i>
                   <span>Watch Demo</span>
                 </a>
@@ -143,9 +149,9 @@
 <div class="row align-items-center gy-4 mb-5">
   <div class="col-lg-6" data-aos="fade-right" data-aos-delay="150">
     <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2 mb-3">About the Project</span>
-    <h2 class="mb-3">FitStride 2.0 — AR Running Meets Chemistry</h2>
+    <h2 class="mb-3">FitStride — AR Running Meets Chemistry</h2>
     <p class="lead">
-      FitStride 2.0 enhances a traditional running app by integrating metaverse and AR technology,
+      <strong>FitStride 2.0</strong> enhances a traditional running app by integrating metaverse and AR technology,
       turning exercise into a dynamic educational experience.
     </p>
     <p>
@@ -191,7 +197,7 @@
       </div>
       <div class="col-lg-6" data-aos="fade-left" data-aos-delay="250">
         <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis px-3 py-2 mb-3">Why We Made This Project</span>
-        <h3 class="mb-3">Our Purpose</h3>
+        <h2 class="mb-3">Our Purpose</h2>
         <p>
           Many students struggle to stay motivated in both fitness and academics. 
           FitStride 2.0 bridges these worlds by combining exercise with hands-on learning. 
@@ -207,7 +213,9 @@
 
   </div>
 </section>
-<section id="how-it-works" class="section py-5 py-lg-6 light-background">
+
+
+
 <section id="how-it-works" class="section py-5 py-lg-6 light-background">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -329,10 +337,30 @@
   </div>
 </section>
 
+<section id="realtime" class="section realtime-showcase light-background" aria-label="Real-time Data Flow" style="background-color: white;">
+  <div class="container text-center" data-aos="fade-up" data-aos-delay="80">
+    
+    <!-- Section Heading -->
+    <div class="section-header">
+<h2 class="section-title">From Route to Molecule <br> - Real-Time Flow -</h2>
+<p class="section-subtitle">
+  See what happens behind the scenes as you sign up, choose a route, collect atoms in AR, and fuse them into molecules — all synced instantly.
+</p>
 
+    </div>
+
+    <!-- Center Image -->
+    <div class="rt-image-wrapper">
+      <img src="assets/img/app/atomix_firebase.png" 
+           alt="App connected to Firebase in real-time" 
+           class="rt-img">
+    </div>
+
+  </div>
+</section>
 
 <!-- Stats + Maps Section -->
-<section id="stats" class="stats section" style="background-color:white;">
+<section id="stats" class="stats section light-background" >
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="row g-4 g-lg-5 align-items-start">
       
@@ -412,6 +440,12 @@
                   </button>
                 </li>
               </ul>
+
+                <a href="map.html" class="btn btn-outline-dark btn-sm d-flex align-items-center gap-2">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                  Full Map & Stats
+                </a>
+
             </div>
 
             <!-- Tab Panes -->
@@ -449,10 +483,49 @@
 
 
 
+<section id="cta-collect" class="section cta-collect light-background">
+  <div class="container">
+    <div class="cta-box">
+      <div class="row align-items-center gy-4">
+        <!-- Left: vertical video -->
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="cta-video-frame">
+            <video class="cta-video" autoplay muted loop playsinline poster="assets/img/app/vertical_poster.jpg" aria-label="FitStride app preview">
+              <source src="assets/img/demo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
 
-<section id="contact" class="contact section light-background">
+        <!-- Right: copy + CTAs -->
+        <div class="col-lg-7 text-center text-lg-start">
+          <span class="cta-eyebrow">Community Challenge</span>
+          <h2 class="cta-title">Let’s Run & Collect Together!</h2>
+          <p class="cta-subtext">
+            Join thousands discovering routes, collecting atoms, and fusing molecules.
+            Fitness meets learning — open to everyone.
+          </p>
+          <div class="cta-buttons">
+            <a href="map.html" class="btn btn-accent">
+              <i class="bi bi-geo-alt"></i> Explore Routes
+            </a>
+            <a href="#how-it-works" class="btn btn-ghost">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="contact" class="contact section" >
   <div class="container section-title" data-aos="fade-up">
-    <span class="description-title">Contact</span>
+    <!-- <span class="description-title">Contact</span> -->
     <h2>Contact</h2>
     <p>Have a question or idea? Send us a message.</p>
   </div>
