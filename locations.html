@@ -163,87 +163,96 @@
 </head>
 <body class="index-page map-page">
 
-  <!-- Header -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
+   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/logo2.png" alt="">
         <h1 class="sitename">Atomix</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#how-it-works">Features</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- Mobile-only Download Apps (inside hamburger menu) -->
+<li class="dropdown d-xl-none">
+  <a href="#">
+    <span>Download Apps</span>
+    <i class="bi bi-chevron-down toggle-dropdown"></i>
+  </a>
+  <ul class="">
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix</li>
+    <li>
+      <a href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-apple"></i> <span>Atomix · Apple</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix · Google Play</span>
+      </a>
+    </li>
 
-          <!-- Mobile-only downloads -->
-          <li class="dropdown d-xl-none">
-            <a href="#"><span>Download Apps</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li class="dropdown-header small text-muted px-3 pt-2">Atomix</li>
-              <li>
-                <a href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" class="d-flex align-items-center gap-2">
-                  <i class="bi bi-apple"></i> <span>Atomix · Apple</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
-                  <i class="bi bi-google-play"></i> <span>Atomix · Google Play</span>
-                </a>
-              </li>
-              <li><hr class="dropdown-divider my-2"></li>
-              <li class="dropdown-header small text-muted px-3 pt-2">Atomix AR</li>
-              <li>
-                <a href="#" target="_blank" class="d-flex align-items-center gap-2">
-                  <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
-                  <i class="bi bi-google-play"></i> <span>Atomix AR · Google Play</span>
-                </a>
-              </li>
-            </ul>
-          </li>
+    <li><hr class="dropdown-divider my-2"></li>
+
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix AR</li>
+    <li>
+<a href="#" class="d-flex align-items-center gap-2"
+   data-coming-soon="atomix-ar-ios">
+  <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
+</a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix AR · Google Play</span>
+      </a>
+    </li>
+  </ul>
+</li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <!-- Desktop downloads -->
-      <div class="dropdown d-none d-xl-inline-block">
-        <button class="btn btn-getstarted dropdown-toggle" type="button"
-                id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          Download Apps
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="downloadDropdown">
-          <li class="dropdown-header small text-muted px-3">Atomix</li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center gap-2" href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" rel="noopener">
-              <i class="bi bi-apple"></i> Download on Apple
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" rel="noopener">
-              <i class="bi bi-google-play"></i> Get it on Google Play
-            </a>
-          </li>
-          <li><hr class="dropdown-divider"></li>
-          <li class="dropdown-header small text-muted px-3">Atomix AR</li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center gap-2" href="#" target="_blank" rel="noopener">
-              <i class="bi bi-apple"></i> Download on Apple
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" rel="noopener">
-              <i class="bi bi-google-play"></i> Get it on Google Play
-            </a>
-          </li>
-        </ul>
-      </div>
+<!-- Desktop-only download button -->
+<div class="dropdown d-none d-xl-inline-block">
+  <button class="btn btn-getstarted dropdown-toggle" type="button"
+          id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    Download Apps
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="downloadDropdown">
+    <li class="dropdown-header small text-muted px-3">Atomix</li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" rel="noopener">
+        <i class="bi bi-apple"></i> Download on Apple
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header small text-muted px-3">Atomix AR</li>
+    <li>
+<a class="dropdown-item d-flex align-items-center gap-2"
+   href="#" rel="noopener" data-coming-soon="atomix-ar-ios">
+  <i class="bi bi-apple"></i> Download on Apple
+</a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+  </ul>
+</div>
+
+
     </div>
   </header>
 
@@ -303,7 +312,7 @@
               <div class="stat-card">
                 <div class="label">Total Molecules Collected</div>
                 <div class="value">
-                  <span class="purecounter" data-purecounter-start="1180" data-purecounter-end="1243" data-purecounter-duration="1.6"></span>
+                  <span class="purecounter" data-purecounter-start="1180" data-purecounter-end="143" data-purecounter-duration="1.6"></span>
                 </div>
               </div>
               <div class="stat-card">
@@ -395,5 +404,41 @@
       }
     });
   </script>
+<div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Coming Soon</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body mb-4">
+        Atomix AR Apple version is coming soon!
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    const triggers = document.querySelectorAll('[data-coming-soon="atomix-ar-ios"]');
+    const modalEl = document.getElementById('comingSoonModal');
+    if (!triggers.length || !modalEl || !window.bootstrap) return;
+
+    const showModal = (e) => {
+      e.preventDefault();
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    };
+
+    triggers.forEach(el => {
+      el.addEventListener('click', showModal);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') showModal(e);
+      });
+    });
+  })();
+</script>
+
+
 </body>
 </html>

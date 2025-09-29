@@ -823,6 +823,29 @@ section, .section {
 .ab-stat.is-em .ab-sicon{ background:#fff; }
 .ab-stat.is-em .ab-sicon i{ color:var(--ab-accent); }
 .ab-stat.is-em .ab-num{ color:#fff; }
+.dropdown-header[role="button"] { cursor: pointer; }
+/* Respect reduced motion */
+@media (prefers-reduced-motion:no-preference){
+  .ab-btn.swerve {
+    transform: translateZ(0);
+    animation: float 2.5s ease-in-out infinite;
+  }
+  .ab-btn.swerve:hover,
+  .ab-btn.swerve:focus {
+    animation: swerve 1.2s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{ transform: translateY(0) }
+    50%    { transform: translateY(-6px) }
+  }
+  @keyframes swerve{
+    0%   { transform: translate(0,0) rotate(0deg) }
+    20%  { transform: translate(4px,-6px) rotate(-1.2deg) }
+    50%  { transform: translate(0,-2px) rotate(1deg) }
+    80%  { transform: translate(-4px,-6px) rotate(1.2deg) }
+    100% { transform: translate(0,0) rotate(0deg) }
+  }
+}
 
 /* Buttons */
 .ab-cta{ display:flex; gap:.6rem; flex-wrap:wrap; }

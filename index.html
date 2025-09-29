@@ -114,9 +114,10 @@
 
     <li class="dropdown-header small text-muted px-3 pt-2">Atomix AR</li>
     <li>
-      <a href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" class="d-flex align-items-center gap-2">
-        <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
-      </a>
+<a href="#" class="d-flex align-items-center gap-2"
+   data-coming-soon="atomix-ar-ios">
+  <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
+</a>
     </li>
     <li>
       <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
@@ -151,9 +152,10 @@
     <li><hr class="dropdown-divider"></li>
     <li class="dropdown-header small text-muted px-3">Atomix AR</li>
     <li>
-      <a class="dropdown-item d-flex align-items-center gap-2" href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" rel="noopener">
-        <i class="bi bi-apple"></i> Download on Apple
-      </a>
+<a class="dropdown-item d-flex align-items-center gap-2"
+   href="#" rel="noopener" data-coming-soon="atomix-ar-ios">
+  <i class="bi bi-apple"></i> Download on Apple
+</a>
     </li>
     <li>
       <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" rel="noopener">
@@ -453,10 +455,10 @@
         <!-- Stats -->
         <div class="row g-3">
           <div class="col-12 col-sm-6">
-            <div class="ab-stat is-em">
+            <div class="ab-stat">
               <div class="ab-sicon"><i class="bi bi-hexagon" aria-hidden="true"></i></div>
               <div class="ab-num">
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1243" data-purecounter-duration="1.5">0</span>
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="143" data-purecounter-duration="1.5">0</span>
               </div>
               <div class="ab-lab">Molecules</div>
             </div>
@@ -473,8 +475,9 @@
         </div>
 
         <!-- CTAs -->
-        <div class="ab-cta mt-4">
-          <a href="locations.html" class="ab-btn"><i class="bi bi-map"></i><span>Explore Routes</span></a>
+        <div class="ab-cta mt-5">
+          <p class="mt-md-4" style="font-size: 0.2 rem !important; color:color-mix(in srgb, var(--default-color), transparent 35%);">Click Explore Routes button below to discover where the molecules are located on the track</p>
+          <a href="locations.html" class="ab-btn d-block mx-auto text-center swerve" style="width: 67%;"><i class="bi bi-map"></i> <span>Explore Routes</span></a>
         </div>
       </div>
 
@@ -559,23 +562,20 @@
 
         <!-- Right: copy + CTAs -->
         <div class="col-lg-7 text-center text-lg-start">
-          <h2 class="cta-title">Let’s Run & Collect Together!</h2>
+          <h2 class="cta-title">Let's Run & Chem Together!</h2>
           <p class="cta-subtext">
-                Join thousands discovering routes, collecting atoms, and fusing molecules.
+                Join discovering routes, collecting atoms, and fusing molecules.
             Fitness meets learning — open to everyone.
           </p>
-          <div class="cta-buttons">
+ <!--          <div class="cta-buttons">
             <a href="locations.html" class="btn btn-accent">
               <i class="bi bi-geo-alt"></i> Explore Routes
             </a>
-          </div>
+          </div> -->
           <hr class="mt-4">
           <div class="row g-4">
 
-                      <h2 class="cta-title2 mt-4">Atomix is Here - Give It a Go!!</h2>
-          <p class="cta-subtext2">
-Launched as a Pilot at Chadwick International School, Atomix empowers students and communities to innovate, connect, and grow.
-          </p>
+                      <h2 class="cta-title2 mt-4">Atomix is Here - Give It a Go!</h2>
   <!-- Atomix Main App -->
   <div class="col-md-6">
     <div class="download-card h-100 w-100">
@@ -614,12 +614,18 @@ Launched as a Pilot at Chadwick International School, Atomix empowers students a
         </div>
       </div>
       <div class="store-badges">
-        <a class="store-badge w-100" href="#" target="_blank">
-          <i class="bi bi-apple me-2"></i> 
-          <span class="store-text">
-            <span class="store-top">Download on</span>
-            <span class="store-bottom">App Store</span>
-          </span>
+<a class="store-badge w-100"
+   href="#"
+   data-coming-soon="atomix-ar-ios"
+   role="button"
+   aria-label="Atomix AR Apple version is coming soon">
+  <i class="bi bi-apple me-2"></i> 
+  <span class="store-text">
+    <span class="store-top">Download on</span>
+    <span class="store-bottom">App Store</span>
+  </span>
+</a>
+
         </a>
         <a class="store-badge w-100" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank">
           <i class="bi bi-google-play me-2"></i> 
@@ -723,6 +729,21 @@ Launched as a Pilot at Chadwick International School, Atomix empowers students a
     </div>
   </div>
 </section>
+<!-- Coming Soon Modal -->
+<div class="modal fade" id="comingSoonModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Coming Soon</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body mb-4">
+        Atomix AR Apple version is coming soon!
+      </div>
+    </div>
+  </div>
+</div>
 
   </main>
 
@@ -912,6 +933,26 @@ Launched as a Pilot at Chadwick International School, Atomix empowers students a
 })();
 </script>
 
+<script>
+  (function () {
+    const triggers = document.querySelectorAll('[data-coming-soon="atomix-ar-ios"]');
+    const modalEl = document.getElementById('comingSoonModal');
+    if (!triggers.length || !modalEl || !window.bootstrap) return;
+
+    const showModal = (e) => {
+      e.preventDefault();
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    };
+
+    triggers.forEach(el => {
+      el.addEventListener('click', showModal);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') showModal(e);
+      });
+    });
+  })();
+</script>
 
 
 
