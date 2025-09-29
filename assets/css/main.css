@@ -1773,7 +1773,7 @@ section,
   font-size: 1.05rem;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   max-width: 560px;
-  margin: 0 auto 1.25rem auto;
+  margin: 0 0 1.25rem 0;
 }
 
 /* Vertical phone-like video frame */
