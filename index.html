@@ -169,14 +169,14 @@
 
   <main class="main">
 
-    <section id="hero" class="hero section">
+<section id="hero" class="hero section fullscreen">
       <div class="hero-bg" aria-hidden="true">
         <span class="blob b1"></span>
         <span class="blob b2"></span>
         <span class="grid"></span>
       </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container mt-5 mt-md-0" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-center">
           
           <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
@@ -213,7 +213,7 @@
 
     <!-- Row 1: About the Project (Text | Image) -->
 <!-- Row 1: About the Project (Text | Image) -->
-<div class="row align-items-center gy-4 mb-5">
+<div class="row align-items-center gy-4 mb-5 mt-4 mt-md-0">
   <div class="col-lg-6" data-aos="fade-right" data-aos-delay="150">
     <span class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2 mb-3">About the Project</span>
     <h2 class="mb-3">Atomix — AR Running Meets Chemistry</h2>
@@ -258,7 +258,7 @@
 
 
     <!-- Row 2: Why We Made This (Image | Text) -->
-<div class="row align-items-center gy-4 flex-lg-row-reverse row-spacing">
+<div class="row align-items-center gy-4 flex-lg-row-reverse row-spacing" id="about2">
   <!-- LEFT: Image -->
   <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
     <img src="assets/img/about/about2.jpg" 
@@ -492,130 +492,112 @@
 </section>
 
 
-
-<!-- Stats + Maps Section -->
-<section id="stats" class="stats section light-background" >
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+<section class="ab-wrap" id="progress-and-routes">
+  <div class="container">
     <div class="row g-4 g-lg-5 align-items-start">
-      
-      <!-- LEFT: Stats -->
-      <div class="col-lg-5" data-aos="fade-right" data-aos-delay="150">
-        <div class="mb-3 text-center text-lg-start">
-          <h3 class="main-headline mb-2">Run. Collect. Learn.</h3>
-          <p class="main-description mb-3">Track progress across routes and molecules collected during each run.</p>
-          <div class="achievement-badge">
-            <div class="achievement-content">
-              <div class="achievement-icon"><i class="bi bi-hexagon-fill"></i></div>
-              <div class="achievement-details">
-                <div class="achievement-title">Live Chemistry Hunt</div>
-                <div class="achievement-subtitle">Real routes • Real molecules</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- LEFT -->
+      <div class="col-lg-5">
+        <div class="ab-head mb-3 text-center text-lg-start">
 
-        <!-- Two-up compact cards -->
+          <h3>Run. Collect. Learn.</h3>
+          <p>Track progress across routes and molecules collected during each run.</p>
+        </div>
+                  <div class="ab-badge mb-3" aria-label="Live Chemistry Hunt">
+            <i class="bi bi-hexagon-fill" aria-hidden="true"></i>
+            <span>Live Chemistry Hunt</span>
+          </div>
+
+        <!-- Stats -->
         <div class="row g-3">
-          <!-- Molecules -->
           <div class="col-12 col-sm-6">
-            <div class="stat-item stat-compact featured">
-              <div class="stat-icon"><i class="bi bi-hexagon"></i></div>
-              <div class="stat-number">
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1243" data-purecounter-duration="1.8"></span>
+            <div class="ab-stat is-em">
+              <div class="ab-sicon"><i class="bi bi-hexagon" aria-hidden="true"></i></div>
+              <div class="ab-num">
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1243" data-purecounter-duration="1.5">0</span>
               </div>
-              <div class="stat-label">Molecules</div>
+              <div class="ab-lab">Molecules</div>
             </div>
           </div>
-          <!-- Routes -->
           <div class="col-12 col-sm-6">
-            <div class="stat-item stat-compact">
-              <div class="stat-icon"><i class="bi bi-signpost-2-fill"></i></div>
-              <div class="stat-number">
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1.2"></span>
+            <div class="ab-stat">
+              <div class="ab-sicon"><i class="bi bi-signpost-2-fill" aria-hidden="true"></i></div>
+              <div class="ab-num">
+                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1.2">0</span>
               </div>
-              <div class="stat-label">Routes</div>
+              <div class="ab-lab">Routes</div>
             </div>
           </div>
         </div>
 
-        <!-- Mini Legend -->
-<!-- Full Map button (replaces the legend card) -->
-          <div class="cta-buttons mt-4">
-            <a href="locations.html" class="btn btn-accent">
-              <i class="bi bi-geo-alt"></i> Explore Routes
-            </a>
-            <a href="#how-it-works" class="btn btn-ghost">
-              Get Started
-            </a>
-          </div>
-
-
+        <!-- CTAs -->
+        <div class="ab-cta mt-4">
+          <a href="locations.html" class="ab-btn"><i class="bi bi-map"></i><span>Explore Routes</span></a>
+          <a href="#about2" class="ab-btn ab-btn--ghost">Get Started</a>
+        </div>
       </div>
-      <!-- /LEFT -->
 
-      <!-- RIGHT: Maps with Tabs -->
-      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-        <div class="route-panel card border-0 shadow-sm">
-          <div class="card-body p-3 p-lg-4">
-            <!-- Tabs -->
+      <!-- RIGHT -->
+      <div class="col-lg-7">
+        <div class="ab-panel bg-white shadow-sm">
+          <div class="p-3 p-lg-4">
             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-              <ul class="nav nav-tabs route-tabs" id="routeTabs" role="tablist">
+              <ul class="nav ab-tabs" id="abTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="route-a-tab" data-bs-toggle="tab" data-bs-target="#route-a" type="button" role="tab" aria-controls="route-a" aria-selected="true">
-                    <i class="bi bi-geo-alt-fill me-1"></i>Route A
+                  <button class="nav-link active" id="ab-tab-a" data-bs-toggle="tab" data-bs-target="#ab-pane-a" type="button" role="tab" aria-controls="ab-pane-a" aria-selected="true">
+                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Route A
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="route-b-tab" data-bs-toggle="tab" data-bs-target="#route-b" type="button" role="tab" aria-controls="route-b" aria-selected="false">
-                    <i class="bi bi-geo-alt-fill me-1"></i>Route B
+                  <button class="nav-link" id="ab-tab-b" data-bs-toggle="tab" data-bs-target="#ab-pane-b" type="button" role="tab" aria-controls="ab-pane-b" aria-selected="false">
+                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Route B
                   </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="route-c-tab" data-bs-toggle="tab" data-bs-target="#route-c" type="button" role="tab" aria-controls="route-c" aria-selected="false">
-                    <i class="bi bi-geo-alt-fill me-1"></i>Route C
+                  <button class="nav-link" id="ab-tab-c" data-bs-toggle="tab" data-bs-target="#ab-pane-c" type="button" role="tab" aria-controls="ab-pane-c" aria-selected="false">
+                    <i class="bi bi-geo-alt-fill me-1" aria-hidden="true"></i>Route C
                   </button>
                 </li>
               </ul>
 
-                <a href="locations.html" class="btn btn-outline-dark btn-sm d-flex align-items-center gap-2">
-                  <i class="bi bi-arrows-fullscreen"></i>
-                  Full Map & Stats
-                </a>
-
+              <a href="locations.html" class="btn btn-sm btn-outline-dark d-flex align-items-center gap-2">
+                <i class="bi bi-arrows-fullscreen" aria-hidden="true"></i> Full Map & Stats
+              </a>
             </div>
 
-            <!-- Tab Panes -->
-            <div class="tab-content route-tabs-content" id="routeTabsContent">
-              <div class="tab-pane fade show active" id="route-a" role="tabpanel" aria-labelledby="route-a-tab" tabindex="0">
-                <p class="route-note">Scenic starter loop with steady pacing.</p>
-                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
-                  <iframe src="https://www.google.com/maps/d/embed?mid=1oVU9r6RFJciqeVwi16jyd5ne0B8TVf0&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route A map"></iframe>
+            <div class="tab-content" id="abTabsContent">
+              <div class="tab-pane fade show active" id="ab-pane-a" role="tabpanel" aria-labelledby="ab-tab-a" tabindex="0">
+                <p class="ab-note">Scenic starter loop with steady pacing.</p>
+                <div class="ratio ratio-16x9 ab-map">
+                  <!-- Replace URL -->
+                  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Route A map"
+                    src="https://www.google.com/maps/d/embed?mid=1oVU9r6RFJciqeVwi16jyd5ne0B8TVf0&ehbc=2E312F"></iframe>
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="route-b" role="tabpanel" aria-labelledby="route-b-tab" tabindex="0">
-                <p class="route-note">Mixed terrain with more molecule hotspots.</p>
-                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
-                  <iframe src="https://www.google.com/maps/d/embed?mid=1-QShzOZ2L_1WuxL0d0UqHwracnfTSbs&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route B map"></iframe>
+              <div class="tab-pane fade" id="ab-pane-b" role="tabpanel" aria-labelledby="ab-tab-b" tabindex="0">
+                <p class="ab-note">Mixed terrain with more molecule hotspots.</p>
+                <div class="ratio ratio-16x9 ab-map">
+                  <!-- Replace URL -->
+                  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Route B map"
+                    src="https://www.google.com/maps/d/embed?mid=1-QShzOZ2L_1WuxL0d0UqHwracnfTSbs&ehbc=2E312F"></iframe>
                 </div>
               </div>
 
-              <div class="tab-pane fade" id="route-c" role="tabpanel" aria-labelledby="route-c-tab" tabindex="0">
-                <p class="route-note">Longest path with advanced checkpoints.</p>
-                <div class="ratio ratio-16x9 rounded overflow-hidden route-map">
-                  <iframe src="https://www.google.com/maps/d/embed?mid=1DNaJUuKTPL4TNvwPaXzpDdF2orOdh84&ehbc=2E312F" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" aria-label="Route C map"></iframe>
+              <div class="tab-pane fade" id="ab-pane-c" role="tabpanel" aria-labelledby="ab-tab-c" tabindex="0">
+                <p class="ab-note">Longest path with advanced checkpoints.</p>
+                <div class="ratio ratio-16x9 ab-map">
+                  <!-- Replace URL -->
+                  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Route C map"
+                    src="https://www.google.com/maps/d/embed?mid=1DNaJUuKTPL4TNvwPaXzpDdF2orOdh84&ehbc=2E312F"></iframe>
                 </div>
               </div>
-            </div><!-- /tab-content -->
-          </div>
-        </div>
-      </div>
-      <!-- /RIGHT -->
-
-    </div><!-- /row -->
-  </div><!-- /container -->
+            </div>
+          </div><!-- /padding -->
+        </div><!-- /ab-panel -->
+      </div><!-- /RIGHT -->
+    </div>
+  </div>
 </section>
-
 
 
 
