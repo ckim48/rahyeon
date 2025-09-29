@@ -96,12 +96,74 @@
           <li><a href="#about">About</a></li>
           <li><a href="#how-it-works">Features</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li class="dropdown d-xl-none">
+  <a href="#">
+    <span>Download Apps</span>
+    <i class="bi bi-chevron-down toggle-dropdown"></i>
+  </a>
+  <ul class="">
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix</li>
+    <li>
+      <a href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-apple"></i> <span>Atomix · Apple</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix · Google Play</span>
+      </a>
+    </li>
+
+    <li><hr class="dropdown-divider my-2"></li>
+
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix AR</li>
+    <li>
+      <a href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix AR · Google Play</span>
+      </a>
+    </li>
+  </ul>
+</li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
-
+<div class="dropdown d-none d-xl-inline-block">
+  <button class="btn btn-getstarted dropdown-toggle" type="button"
+          id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    Download Apps
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="downloadDropdown">
+    <li class="dropdown-header small text-muted px-3">Atomix</li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" rel="noopener">
+        <i class="bi bi-apple"></i> Download on Apple
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header small text-muted px-3">Atomix AR</li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" rel="noopener">
+        <i class="bi bi-apple"></i> Download on Apple
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+  </ul>
+</div>
     </div>
   </header>
 
@@ -146,7 +208,7 @@
                         src="https://www.google.com/maps/d/embed?mid=1oVU9r6RFJciqeVwi16jyd5ne0B8TVf0&ehbc=2E312F"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        aria-label="Route Map">
+                        aria-label="Route Map"></iframe>
                 <div class="map-loader" aria-hidden="true">
                   <div class="map-spinner"></div>
                 </div>
@@ -225,7 +287,6 @@
       B: "https://www.google.com/maps/d/embed?mid=1-QShzOZ2L_1WuxL0d0UqHwracnfTSbs&ehbc=2E312F",
       C: "https://www.google.com/maps/d/embed?mid=1DNaJUuKTPL4TNvwPaXzpDdF2orOdh84&ehbc=2E312F"
     };
-
 
     const selectEl = document.getElementById('routeSelect');
     const mapBox   = document.getElementById('mapBox');

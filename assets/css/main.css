@@ -1691,20 +1691,78 @@ section,
 /* Centered Image */
 .rt-image-wrapper {
   position: relative;
-  max-width: 650px;
+  max-width: 720px;
   margin: 0 auto;
   border-radius: 14px;
   overflow: hidden;
-  background: #000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
+/* Keep header CTA look consistent */
+
+/* Mobile dropdown submenu spacing */
+.navmenu .dropdown .dropdown-header { font-weight:600; }
+.navmenu .dropdown .dropdown-divider { margin:.35rem 1rem; }
+.navmenu .dropdown a i { font-size:1.05rem; }
+/* Download Cards */
+/* Force download cards and buttons to align perfectly */
+.download-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 1rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,.05);
+}
+
+.store-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.store-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 0.75rem;
+  padding: 0.7rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.store-badge:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+/* Ensures both sides are perfectly equal */
+.row.g-4 > [class*='col-'] {
+  display: flex;
+}
+
+.row.g-4 > [class*='col-'] > .download-card {
+  width: 100%;
+}
+
+
+
+/* Small platform chips (optional) */
+.app-chips{ display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.35rem; }
+.app-chip{
+  font-size:.72rem; padding:.18rem .5rem; border-radius:999px;
+  background:#f3f4f6; color:#374151; border:1px solid color-mix(in srgb, #0b1324, transparent 88%);
+}
+
 
 /* Slight dark overlay for readability */
 .rt-image-wrapper::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0);
 }
 
 .rt-img {

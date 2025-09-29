@@ -91,11 +91,78 @@
           <li><a href="#about">About</a></li>
           <li><a href="#how-it-works">Features</a></li>
           <li><a href="#contact">Contact</a></li>
+          <!-- Mobile-only Download Apps (inside hamburger menu) -->
+<li class="dropdown d-xl-none">
+  <a href="#">
+    <span>Download Apps</span>
+    <i class="bi bi-chevron-down toggle-dropdown"></i>
+  </a>
+  <ul class="">
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix</li>
+    <li>
+      <a href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-apple"></i> <span>Atomix · Apple</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix · Google Play</span>
+      </a>
+    </li>
+
+    <li><hr class="dropdown-divider my-2"></li>
+
+    <li class="dropdown-header small text-muted px-3 pt-2">Atomix AR</li>
+    <li>
+      <a href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-apple"></i> <span>Atomix AR · Apple</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" class="d-flex align-items-center gap-2">
+        <i class="bi bi-google-play"></i> <span>Atomix AR · Google Play</span>
+      </a>
+    </li>
+  </ul>
+</li>
+
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Download App</a>
+<!-- Desktop-only download button -->
+<div class="dropdown d-none d-xl-inline-block">
+  <button class="btn btn-getstarted dropdown-toggle" type="button"
+          id="downloadDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    Download Apps
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="downloadDropdown">
+    <li class="dropdown-header small text-muted px-3">Atomix</li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank" rel="noopener">
+        <i class="bi bi-apple"></i> Download on Apple
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header small text-muted px-3">Atomix AR</li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="<!-- TODO: real Atomix AR Apple URL -->" target="_blank" rel="noopener">
+        <i class="bi bi-apple"></i> Download on Apple
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex align-items-center gap-2" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank" rel="noopener">
+        <i class="bi bi-google-play"></i> Get it on Google Play
+      </a>
+    </li>
+  </ul>
+</div>
+
 
     </div>
   </header>
@@ -191,25 +258,90 @@
 
 
     <!-- Row 2: Why We Made This (Image | Text) -->
-    <div class="row align-items-center gy-4 flex-lg-row-reverse  row-spacing">
-      <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
-        <img src="assets/img/about/about2.jpg" class="img-fluid rounded-4 shadow-sm d-block mx-auto" alt="Why Atomix was created" style="width: 85%;">
+<div class="row align-items-center gy-4 flex-lg-row-reverse row-spacing">
+  <!-- LEFT: Image -->
+  <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="150">
+    <img src="assets/img/about/about2.jpg" 
+         class="img-fluid rounded-4 shadow-sm d-block mx-auto" 
+         alt="Why Atomix was created" 
+         style="width: 85%;">
+  </div>
+
+  <!-- RIGHT: Text + Download Sections -->
+  <div class="col-lg-6" data-aos="fade-left" data-aos-delay="250">
+    <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis px-3 py-2 mb-3">Why We Made This Project</span>
+    <h2 class="mb-3">Our Purpose</h2>
+    <p>
+      Many students struggle to stay motivated in both fitness and academics. 
+      Atomix bridges these worlds by combining exercise with hands-on learning. 
+    </p>
+    <p>
+      By encouraging physical activity through running challenges and 
+      reinforcing chemistry knowledge with interactive AR molecules, 
+      our goal is to promote health, engagement, and education in a single, 
+      gamified experience.
+    </p>
+<div class="row g-4">
+  <!-- Atomix Main App -->
+  <div class="col-md-6">
+    <div class="download-card h-100 w-100">
+      <div class="download-header">
+        <div>
+          <h6 class="download-title"><strong>Atomix</strong></h6>
+          <p class="download-sub">Fitness meets learning</p>
+        </div>
       </div>
-      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="250">
-        <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis px-3 py-2 mb-3">Why We Made This Project</span>
-        <h2 class="mb-3">Our Purpose</h2>
-        <p>
-          Many students struggle to stay motivated in both fitness and academics. 
-          Atomix bridges these worlds by combining exercise with hands-on learning. 
-        </p>
-        <p>
-          By encouraging physical activity through running challenges and 
-          reinforcing chemistry knowledge with interactive AR molecules, 
-          our goal is to promote health, engagement, and education in a single, 
-          gamified experience.
-        </p>
+      <div class="store-badges">
+        <a class="store-badge w-100" href="https://apps.apple.com/kr/app/atomix-app/id6751454240?l=en-GB" target="_blank">
+          <i class="bi bi-apple me-2"></i> 
+          <span class="store-text">
+            <span class="store-top">Download on</span>
+            <span class="store-bottom">App Store</span>
+          </span>
+        </a>
+        <a class="store-badge w-100" href="https://play.google.com/store/apps/details?id=com.logncoding.atomix&pcampaignid=web_share" target="_blank">
+          <i class="bi bi-google-play me-2"></i> 
+          <span class="store-text">
+            <span class="store-top">Get it on</span>
+            <span class="store-bottom">Google Play</span>
+          </span>
+        </a>
       </div>
     </div>
+  </div>
+
+  <!-- Atomix AR App -->
+  <div class="col-md-6">
+    <div class="download-card h-100 w-100">
+      <div class="download-header">
+        <div>
+          <h6 class="download-title"><strong>Atomix AR</strong></h6>
+          <p class="download-sub">Augmented reality molecules</p>
+        </div>
+      </div>
+      <div class="store-badges">
+        <a class="store-badge w-100" href="#" target="_blank">
+          <i class="bi bi-apple me-2"></i> 
+          <span class="store-text">
+            <span class="store-top">Download on</span>
+            <span class="store-bottom">App Store</span>
+          </span>
+        </a>
+        <a class="store-badge w-100" href="https://play.google.com/store/apps/details?id=com.logncoding.atomixar&pcampaignid=web_share" target="_blank">
+          <i class="bi bi-google-play me-2"></i> 
+          <span class="store-text">
+            <span class="store-top">Get it on</span>
+            <span class="store-bottom">Google Play</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
 
   </div>
 </section>
@@ -351,13 +483,15 @@
 
     <!-- Center Image -->
     <div class="rt-image-wrapper">
-      <img src="assets/img/app/atomix_firebase.png" 
+      <img src="assets/img/about/firebase3.png" 
            alt="App connected to Firebase in real-time" 
            class="rt-img">
     </div>
 
   </div>
 </section>
+
+
 
 <!-- Stats + Maps Section -->
 <section id="stats" class="stats section light-background" >
