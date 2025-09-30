@@ -1125,6 +1125,67 @@ section, .section {
   #moleculeCanvas.molecule-canvas{ display:none; }
 }
 
-/* If your header is NOT fixed, set --header-height: 0px above
-   or remove it from the calc() entirely. */
+/* ===== First Partner (token-matched) ===== */
+.first-partner {
+  background: var(--background-color);           /* matches .light-background usage */
+}
+
+.first-partner .fp-figure { margin: 0; }
+
+
+
+.first-partner h2 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.first-partner p,
+.first-partner .lead {
+  color: color-mix(in srgb, var(--default-color), transparent 18%);
+}
+
+.first-partner .fp-points {
+  margin: .75rem 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+.first-partner .fp-points li {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  margin: .35rem 0;
+}
+.first-partner .fp-points i {
+  color: var(--accent-color);
+  font-size: 1.05rem;
+  line-height: 1.2;
+  flex: 0 0 auto;
+}
+
+.first-partner .fp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 600;
+  font-size: .75rem;
+  border-radius: 999px; /* smoother pill */
+  padding: .25rem .8rem .25rem .5rem;
+    color: #00263A; /* white text for contrast */
+  
+/*  border: 1px solid color-mix(in srgb, #00263A, transparent 50%);*/
+  box-shadow: 0 4px 10px color-mix(in srgb, #00263A, transparent 80%);
+  
+  letter-spacing: .2px;
+}
+
+.fp-badge-logo {
+  height: 30px; /* smaller, balanced */
+  width: auto;
+  display: inline-block;
+  border-radius: 4px; /* soft rounding if logo is square */
+  padding: 2px;
+}
 
