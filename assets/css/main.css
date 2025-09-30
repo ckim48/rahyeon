@@ -1176,7 +1176,7 @@ section, .section {
     color: #00263A; /* white text for contrast */
   
 /*  border: 1px solid color-mix(in srgb, #00263A, transparent 50%);*/
-  box-shadow: 0 4px 10px color-mix(in srgb, #00263A, transparent 80%);
+  box-shadow: 0 2px 5px color-mix(in srgb, #00263A, transparent 80%);
   
   letter-spacing: .2px;
 }
